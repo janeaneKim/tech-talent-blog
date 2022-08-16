@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Create a New Blog</title>
+		<meta http-equiv="Content-Type" content="text/html: charset=UTF-8">
+		<th:block th:replace="/fragments/template:: head-setup">
+		</th:block>
+		
+	</head>
+	<body>
+		<div th:replace="/fragments/template:: navbar"></div>
+		<div class="container">
+			<h1>Submit a Blog post:</h1>
+			
+			<!--returns with blogPost object  -->
+			<form th:action="@{/blogposts}" th:object="${blogPost}" method="post">
+				<div class="form-group">
+					<input type= "text" class="form-control" placeholder= "Blog Title" th:field="*{title}"/>
+				</div>
+				<div class="form-group">
+					<input type= "text" class="form-control" placeholder= "Your Name" th:field="*{author}"/>
+				</div>
+				<div class="form-group">
+					<input type= "text" class="form-control" placeholder= "Blog Entry" th:field="*{blogEntry}"/>
+				</div>
+					<button class="btn btn-primary">Save Edits</button>
+			</form>
+		</div>
+	    <th:block th:replace="/fragments/template:: end-setup">
+	    </th:block>
+	</body>
+</html>
